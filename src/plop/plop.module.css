@@ -1,0 +1,24 @@
+@import "../const.css";
+
+.plop {
+  display: inline-block;
+  position: relative;
+}
+
+.plopbox {
+  left: 50%;
+  opacity: 0;
+  padding: var(--minor);
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .2s;
+  width: 320px;
+  z-index: 300;
+}
+
+.plop:hover .plopbox {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -100%) scale(1);
+}

@@ -1,0 +1,5 @@
+*, *:before, *:after {
+  --minor: 15px; /* Also known as "the Ivan" */
+  --enhanced: rgb(255, 206, 31);
+  --selected: #518dba;
+}

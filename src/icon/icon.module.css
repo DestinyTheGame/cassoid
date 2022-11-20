@@ -1,0 +1,22 @@
+.icon {
+  position: relative;
+  height: var(--size);
+}
+
+.image {
+  width: var(--size);
+  height: var(--size);
+}
+
+.icon::after {
+  content: '';
+  width: var(--size);
+  height: var(--size);
+  background: var(--watermark);
+  position: absolute;
+  background-size: cover;
+  user-select: none;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

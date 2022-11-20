@@ -1,0 +1,50 @@
+@import "../const.css";
+
+.telesto {
+  background: url("https://www.bungie.net/pubassets/pkgs/171/171893/d2_Community_Telesto_2022_1920x1080.jpg");
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display:flex;
+  justify-content: center;
+}
+
+.postmaster {
+  background-color: rgba(0, 0, 0, .5);
+  border-top: 3px solid rgba(255, 255, 255, .5);
+  border-bottom: 25px solid rgba(0, 0, 0, .5);
+  backdrop-filter: blur(10px);
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.reason {
+  padding: var(--minor);
+}
+
+.content {
+  width: 100%;
+  font-family: verdana;
+  font-weight: normal;
+  color: white;
+}
+
+.droid {
+  width: 30%;
+  align-items: flex-start;
+}
+
+.title {
+  font-family: verdana;
+  font-weight: normal;
+  letter-spacing: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, .5);
+  font-size: 36px;
+  margin: 0;
+  padding: var(--minor);
+}

@@ -1,0 +1,17 @@
+@import "../const.css";
+
+.wizard {}
+
+.header {
+  font-family: verdana;
+  font-weight: normal;
+  color: white;
+  border-bottom: 1px solid white;
+  padding-bottom: calc(var(--minor) / 2);
+}
+
+.selection {
+  display: flex;
+  flex-direction: row;
+  gap: var(--minor);
+}

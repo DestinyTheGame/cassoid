@@ -1,0 +1,24 @@
+@import "../const.css";
+
+.suggestion {
+  display: flex;
+  flex-direction: row;
+  gap: var(--minor);
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-family: verdana;
+  font-weight: normal;
+  padding: 2px;
+  border: 1px solid white;
+}
+
+.suggestion:hover {
+  outline: 1px solid white;
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--minor);
+}
