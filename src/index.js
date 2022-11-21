@@ -2,6 +2,7 @@
 // Require all the components that we need to build the application.
 //
 require('./suggestion');
+require('./squarecon');
 require('./wizard');
 require('./perks');
 require('./stats');

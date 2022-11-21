@@ -1,0 +1,15 @@
+.squarecon {
+  position: relative;
+  height: var(--size);
+  width: var(--size);
+  border: 2px solid rgba(255, 255, 255, .5);
+}
+
+.squarecon:hover {
+  border-color: white;
+}
+
+.image {
+  width: var(--size);
+  height: var(--size);
+}

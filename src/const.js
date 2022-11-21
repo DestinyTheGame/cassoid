@@ -1,7 +1,18 @@
-//
-// This will be order in which the bars are presented.
-//
-const order = [
+/**
+ * Empty, but still functions. Which is quite the mood. This function will
+ * be used as default value for components with optional props that are
+ * functions.
+ *
+ * @type {Function}
+ */
+export function nope() {}
+
+/**
+ * Order in which the stat bars will be presented to our users.
+ *
+ * @type {Array}
+ */
+export const order = [
   'blast',        // Blast Radius
   'velocity',     // Velocity
   'impact',       // Impact
@@ -25,4 +36,14 @@ const order = [
   'mag'           // Magazine
 ];
 
-module.exports = { order }
+/**
+ * List of weapon mods.
+ *
+ * @type {Object}
+ * @TODO Statically generate this list from the API responses.
+ */
+export const mods = {
+  minor: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/e81a8c8140243bd59ea988476dcb87b3.png'
+  }
+};

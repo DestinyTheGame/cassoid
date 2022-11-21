@@ -1,12 +1,11 @@
-import { barrels, mags, firstPerks, secondPerks } from './data.js';
 import { factory } from './utilitybook';
-import { Wizard } from '../src';
+import { Squarecon, Mod } from '../src';
 import React from 'react';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Components/Wizard',
-  component: Wizard,
+  title: 'Components/Squarecon',
+  component: Squarecon,
 
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
@@ -17,13 +16,11 @@ export default {
 //
 // The actual different components and states of the components.
 //
-export const Wizarding = factory(Wizard)({
-  perks: {
-    'component': barrels,
-    'magazine': mags,
-    'first-perk': firstPerks,
-    'second-perk': secondPerks.map(function enhance(item) {
-      return { ...item, enhanced: true }
-    })
-  }
+export const Basic = factory(Squarecon)({
+  src: 'https://www.bungie.net/common/destiny2_content/icons/e81a8c8140243bd59ea988476dcb87b3.png',
+  description: 'The minor spec mod, enjoyed by specific members of the Destiny Science community'
+});
+
+export const Mods = factory(Mod)({
+  name: 'minor'
 });

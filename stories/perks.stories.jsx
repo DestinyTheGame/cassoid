@@ -1,3 +1,4 @@
+import { factory } from './utilitybook';
 import { barrels } from './data.js';
 import { Perks } from '../src';
 import React from 'react';
@@ -8,19 +9,7 @@ export default {
   component: Perks,
 };
 
-/**
- * Component factory for easily rendering multiple states of the component.
- *
- * @param {Object} [args={}] Component args.
- * @returns {Function} Functional component.
- * @public
- */
-function example(args = {}) {
-  const render = (props) => <Perks { ...props } />
-  render.args = args;
-
-  return render;
-};
+const example = factory(Perks);
 
 //
 // The actual different components and states of the components.

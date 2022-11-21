@@ -1,6 +1,7 @@
 import styles from './perks.module.css';
 import exporter from 'red/export';
 import { Plop } from 'red/pure';
+import { nope } from '../const';
 import React from 'react';
 import slug from 'slug';
 
@@ -13,7 +14,7 @@ import slug from 'slug';
  * @param {Function} onChange Handler that is called on change.
  * @public
  */
-export default function Perks({ direction = 'column', name, items, active, onChange }) {
+export default function Perks({ direction = 'column', name, items, active, onChange = nope }) {
   const perks = items.map(function transform(item) {
     const value = slug(item.value);
 
