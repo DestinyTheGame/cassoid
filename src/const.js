@@ -8,6 +8,21 @@
 export function nope() {}
 
 /**
+ * White list of the names of the weapon selection.
+ *
+ * @type {Array}
+ */
+export const selection = [
+  'component',      // Barrels, Scopes, Blade, etc
+  'magazine',       // Magazine, Battery, Guard
+  'first-perk',     // First trait, perk
+  'second-perk',    // Second trait, perk
+  'origin',         // Origin trait
+  'masterwork',     // Different types of masterworks.
+  'mod'             // Slotted mod.
+];
+
+/**
  * Order in which the stat bars will be presented to our users.
  *
  * @type {Array}
@@ -43,7 +58,25 @@ export const order = [
  * @TODO Statically generate this list from the API responses.
  */
 export const mods = {
+  empty: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/54fa140e3e70ea7e5bd29b623ef75518.png'
+  },
   minor: {
     src: 'https://www.bungie.net/common/destiny2_content/icons/e81a8c8140243bd59ea988476dcb87b3.png'
+  }
+};
+
+/**
+ * List of masterwork options.
+ *
+ * @type {Object}
+ * @TODO Statically generate this list from the API responses.
+ */
+export const masterworks = {
+  empty: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/54fa140e3e70ea7e5bd29b623ef75518.png'
+  },
+  stability: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/50729e324ba7831fca684b911e9e1270.jpg'
   }
 };

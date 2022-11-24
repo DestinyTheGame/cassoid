@@ -1,4 +1,5 @@
 const translate = require('../../translations');
+const { selection } = require('../const');
 const { state } = require('red/state');
 
 //
@@ -18,15 +19,8 @@ state.selection = typeof window === 'undefined' ? {} : (function parse(whitelist
   }
 
   return result;
-}([
-  'component',      // Barrels, Scopes, Blade, etc
-  'magazine',       // Magazine, Battery, Guard
-  'first-perk',     // First trait, perk
-  'second-perk',    // Second trait, perk
-  'origin',         // Origin trait
-  'masterwork',     // Different types of masterworks.
-  'mod'             // Slotted mod.
-]));
+}(selection));
+
 
 //
 // Different modes the site can be rendered in. This changes various of parts

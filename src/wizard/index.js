@@ -25,7 +25,7 @@ function Wizard({ perks, ...props })   {
     setActive({ ...active, [name]: slug(item.value) });
 
     if (props.onChange) props.onChange(e, { perks, name, item });
-  }, [props, perks]);
+  }, [props.onChange, perks]);
 
   return (
     <section className={ styles.wizard }>

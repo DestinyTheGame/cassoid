@@ -14,14 +14,14 @@ import slug from 'slug';
  * @param {Function} onChange Handler that is called on change.
  * @public
  */
-export default function Perks({ direction = 'column', name, items, active, onChange = nope }) {
+export default function Perks({ direction = 'column', name, items, active, onChange = nope, size = 42 }) {
   const perks = items.map(function transform(item) {
     const value = slug(item.value);
 
     return (
       <input
         className={ `${styles.icon} ${item.enhanced ? styles.enhanced : ''}` }
-        style={{ '--icon': `url(${item.icon})` }}
+        style={{ '--icon': `url(${item.icon})`, '--size': `${size}px` }}
         onChange={ (e) => onChange(e, { name, item }) }
         checked={ active === value }
         title={ item.value }

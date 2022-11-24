@@ -1,9 +1,8 @@
-const { useSelectiveState } = require('red/state/hook');
-const { Bar, NumericBar } = require('red/pure');
-const styles = require('./stats.module.css');
-const { state } = require('red/state');
-const { order } = require('../const');
-const React = require('react');
+import styles from './stats.module.css';
+import React, { useMemo } from 'react';
+import { order } from '../const';
+import exporter from 'red/export';
+import { Bar, Numeric } from 'red/pure';
 
 /**
  * Calculate if the perk selection introduces new stat boosts.
@@ -13,14 +12,16 @@ const React = require('react');
  * @returns {Object} List of changes.
  * @private
  */
-function calculate(perks, add) {
+function calculate(perks, mode) {
+  if (!Array.isArray(perks)) return {};
+
   return order.reduce(function reduce(memo, name) {
     memo[name] = name in memo ? memo[name] : 0;
 
     for (let perk of perks) {
-      if (perk[name]) {
-        if (perk[name] >= 0 && add) memo[name] += perk[name];
-        if (perk[name] < 0 && remove) memo[name] -= perk[name];
+      if (perk.stats && perk.stats[name]) {
+        if (perk.stats[name] >= 0 && mode === true) memo[name] += perk.stats[name];
+        if (perk.stats[name] < 0 && mode === false) memo[name] -= perk.stats[name];
       }
     }
 
@@ -28,34 +29,67 @@ function calculate(perks, add) {
   }, {});
 }
 
-function Stats(props) {
-  const text = useSelectiveState(state.translations);
-  const selection = useSelectiveState(state.selection);
-  const removed = calculate(selection, false);
-  const added = calculate(selection, true);
+/**
+ * Helper function that serves the right component based on which start bar
+ * is requested. Some stats require different charts for information to be
+ * displayed.
+ *
+ * @param {String} stat [description]
+ * @param {Number} base The default value of the stat.
+ * @param {Number} added Optional additions.
+ * @param {Number} removed Optional removals.
+ * @returns {React.Component} The selected component.
+ * @private
+ */
+function bartender(stat, base, added, removed) {
+  switch (stat) {
+    case 'mag':
+    case 'chargetime':
+    case 'rd':
+      return <Numeric base={ base } added={ added } removed={ removed } />
+  }
 
-  const stats = order.reduce((name) => {
-    if (!(name in props)) return null;
+  return <Bar base={ base } added={ added } removed={ removed } />
+}
 
-    return React.createElement(Bar, {
-      key: name,
-      name: text[name],
-      base: props[name],
-      added: added[name],
-      removed: removed[name]
-    });
-  }).filter(Boolean);
+/**
+ * Representation of weapon stats. Influenced by selection of perks, mw.
+ *
+ * @param {[type]} selection [description]
+ * @param {[type]} props [description]
+ * @public
+ */
+function Stats({ selection, ...props }) {
+  const stats = useMemo(function generate() {
+    const removed = calculate(selection, false);
+    const added = calculate(selection, true);
+
+    return order.map((key) => {
+      if (!(key in props)) return null;
+
+      return (
+        <tr className={ styles.stat } key={ key }>
+          <td className={ styles.name}>
+            { key }
+          </td>
+          <td className={ styles.value }>
+            { bartender(key, props[key], added[key], removed[key]) }
+          </td>
+        </tr>
+      );
+    }).filter(Boolean);
+  }, [ selection ]);
 
   return (
-    <aside className={ styles.statbar }>
-      { stats }
-    </aside>
+    <table className={ styles.stats }>
+      <tbody>
+        { stats }
+      </tbody>
+    </table>
   );
 }
 
 //
 // Expose the component.
 //
-module.exports = require('red/export')({
-  Stats: React.memo(Stats)
-});
+exporter({ Stats });

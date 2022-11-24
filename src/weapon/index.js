@@ -1,30 +1,43 @@
-const { useSelectiveState } = require('red/state/hook');
-const styles = require('./weapon.module.css');
-const { state } = require('red/state');
-const { PerkWizard } = require('red');
-const React = require('react');
+import { Icon, Summary, Stats } from 'red/pure';
+import styles from './weapon.module.css';
+import exporter from 'red/export';
+import React from 'react';
 
-function Weapon({ name, perks }) {
-  const text = useSelectiveState(state.translations);
-
+/**
+ * A weapon that we're currently crafting.
+ *
+ * @param {String} name Name of the weapon.
+ * @param {String} type Archtype of the weapon.
+ * @param {String} src Backsplash image location
+ * @param {String} element Elemental affinity image location.
+ * @param {Object} icon Icongraphy.
+ * @param {String} icon.src Location of the icon.
+ * @param {String} icon.watermark Seasonal indicator.
+ * @param {Object} summary Perk selection summary.
+ * @param {Stats} stats Weapon stats and selected bonus.
+ * @public
+ */
+function Weapon({ name, type, icon, src, element, summary, stats }) {
   return (
-    <section className={ styles.weapon }>
-      <header>
-        <h1 className={ styles.name }>{ name }</h1>
-        <h5 className={ styles.type }>{ text[type] }</h5>
+    <section className={ styles.weapon } style={{
+      '--bg': `url(${src})`,
+      '--element': `url(${element})`
+    }}>
+      <header className={ styles.header }>
+        <Icon src={ icon.src } watermark={ icon.watermark }  />
 
-        <figure className={ styles.element }>
-        </figure>
+        <hgroup className={ styles.details }>
+          <h1 className={ styles.name }>{ name }</h1>
+          <h5 className={ styles.type }>{ type }</h5>
+        </hgroup>
       </header>
 
-      <PerkWizard perks={ perks } />
+      <div className={ styles.content }>
+        <Stats { ...stats } />
+        <Summary { ...summary } size={ 42 } />
+      </div>
     </section>
   );
 }
 
-//
-// Expose the component.
-//
-module.exports = require('red/export')({
-  Stats: React.memo(Stats)
-});
+exporter({ Weapon: React.memo(Weapon) });

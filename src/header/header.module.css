@@ -1,0 +1,59 @@
+@import "../const.css";
+
+.header {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
+  height: calc(var(--minor) * 2)
+}
+
+.search {
+  margin-left: var(--minor);
+}
+
+.search input {
+  background: none;
+  border: none;
+  color: white;
+  font-family: verdana;
+  font-size: 1rem
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search button {
+  color: rgba(255, 255, 255, .5);
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  font-family: verdana;
+  background: none;
+  border: 2px solid red;
+  border-radius: 80%;
+}
+
+.search button:hover {
+  border: 2px solid rgba(255, 255, 255, .5);
+  color: black;
+}
+
+.search button:focus {
+  outline: none;
+}
+
+.logo {
+
+}
+
+.options {
+  padding: 0;
+  margin: 0 var(--minor) 0 0;
+}
+
+.options li {
+  display: inline-block;
+}

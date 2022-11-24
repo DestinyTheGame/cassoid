@@ -1,0 +1,12 @@
+@import "../const.css";
+
+.summary {
+  display: flex;
+  flex-direction: row;
+  gap: var(--minor)
+}
+
+.frame {
+  width: calc(var(--size) + 10px);
+  height: calc(var(--size) + 10px);
+}

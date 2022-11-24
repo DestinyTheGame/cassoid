@@ -69,3 +69,32 @@ export const secondPerks = [
     value: 'Killclip'
   }
 ];
+
+export const item = {
+  src: 'https://www.bungie.net/common/destiny2_content/icons/34b5a87f1d8b531b0682bc3fdc222a6d.jpg',
+  description: 'Representation of the Main Ingredient gun model',
+  name: 'Main Ingredient',
+  season: 13
+};
+
+export const items = [
+  item,
+  { ...item, name: `Ice Breaker` },
+  { ...item, name: `No Land Beyond` },
+  { ...item, name: `Saladin's Vigil` },
+  { ...item, name: `Dreg's Promise` }
+]
+
+export const stats = {
+  'impact': 95,
+  'range': 52,
+  'stability': 22,
+  'handling': 12,
+  'reload': 19,
+  'aa': 68,
+  'ae': 2,
+  'zoom': 15,
+  'rd': 77,
+  'chargetime': 960,
+  'mag': 5
+}

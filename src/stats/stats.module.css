@@ -1,0 +1,17 @@
+.stats {
+  color: white;
+  font-family: verdana;
+}
+
+.stat {
+}
+
+.name {
+  text-align: right;
+}
+
+.value {
+  min-width: 10vw;
+}
+
+.numeric {}

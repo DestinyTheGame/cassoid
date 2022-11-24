@@ -1,3 +1,59 @@
+@import "../const.css";
+
 .weapon {
+  background-image: var(--bg);
+  background-size: cover;
   background-color: limegreen;
+  position: relative;
+  padding: var(--minor);
+  overflow: hidden;
+  min-width: 654px;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.weapon:after {
+  content: '';
+  width: 42px;
+  height: 42px;
+  background: var(--element);
+  position: absolute;
+  background-size: cover;
+  user-select: none;
+  top: var(--minor);
+  right: var(--minor);
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2;
+}
+
+.content footer {
+  align-self: flex-end;
+  justify-content: right;
+  flex-grow: 2;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: var(--minor);
+}
+
+.details {
+  color: white;
+  font-family: verdana;
+  margin-left: var(--minor);
+}
+
+.name {
+  text-transform: uppercase;
+}
+
+.type {
+  font-weight: normal;
 }
