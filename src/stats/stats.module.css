@@ -14,4 +14,8 @@
   min-width: 10vw;
 }
 
-.numeric {}
+.recoil {
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+}

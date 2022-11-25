@@ -8,6 +8,7 @@
   color: white;
   border-bottom: 1px solid white;
   padding-bottom: calc(var(--minor) / 2);
+  margin-bottom: var(--minor);
 }
 
 .selection {

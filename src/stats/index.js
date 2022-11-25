@@ -1,8 +1,8 @@
+import { Bar, Numeric, Direction } from 'red/pure';
 import styles from './stats.module.css';
 import React, { useMemo } from 'react';
 import { order } from '../const';
 import exporter from 'red/export';
-import { Bar, Numeric } from 'red/pure';
 
 /**
  * Calculate if the perk selection introduces new stat boosts.
@@ -34,7 +34,7 @@ function calculate(perks, mode) {
  * is requested. Some stats require different charts for information to be
  * displayed.
  *
- * @param {String} stat [description]
+ * @param {String} stat The name of the stat who's value we're trying to render.
  * @param {Number} base The default value of the stat.
  * @param {Number} added Optional additions.
  * @param {Number} removed Optional removals.
@@ -43,9 +43,20 @@ function calculate(perks, mode) {
  */
 function bartender(stat, base, added, removed) {
   switch (stat) {
-    case 'mag':
+    case 'draw':
     case 'chargetime':
+      return <Numeric base={ base } added={ added } removed={ removed } suffix='ms' />;
+
     case 'rd':
+      return (
+        <div className={ styles.recoil }>
+          <Numeric base={ base } added={ added } removed={ removed } max={ 100 } />
+          <Direction base={ base } added={ added } removed={ removed } />
+        </div>
+      );
+
+    case 'rpm':
+    case 'mag':
       return <Numeric base={ base } added={ added } removed={ removed } />
   }
 

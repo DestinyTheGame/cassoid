@@ -1,5 +1,5 @@
-import styles from './summary.module.css';
 import { Perks, Mod, Masterwork } from 'red/pure';
+import styles from './summary.module.css';
 import exporter from 'red/export';
 import React from 'react';
 

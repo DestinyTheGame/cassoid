@@ -3,12 +3,14 @@
 //
 require('./dataisbeautiful');
 require('./suggestion');
+require('./tabbar');
 require('./summary');
 require('./weapon');
 require('./wizard');
 require('./header');
 require('./perks');
 require('./stats');
+require('./slots');
 require('./plop');
 require('./icon');
 

@@ -78,5 +78,29 @@ export const masterworks = {
   },
   stability: {
     src: 'https://www.bungie.net/common/destiny2_content/icons/50729e324ba7831fca684b911e9e1270.jpg'
+  },
+  handling: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/461561d0228f55cdc90db55f679f0697.jpg'
+  },
+  reload: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/3b9e5bcf72d7c44d19d5396dd97d913c.jpg'
+  },
+  draw: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/d14f883185c38e2a64e74b446c5d53b6.jpg'
+  },
+  accuracy: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/6f5e229b17129a3ee9dde187589adcdc.jpg'
+  },
+  blast: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/f47679637ac930fafb3d3631b3002912.jpg'
+  },
+  velocity: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/f0afe1ad6e598bd4b7473ee49ec53198.jpg'
+  },
+  impact: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/1a733f69d908fc7ebe0a183ca3e75b54.jpg'
+  },
+  chargetime: {
+    src: 'https://www.bungie.net/common/destiny2_content/icons/752037a87a129a57e68a9c8d5e3bb100.jpg'
   }
 };
