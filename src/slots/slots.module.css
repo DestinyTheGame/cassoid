@@ -1,0 +1,25 @@
+@import "../const.css";
+
+.slots {}
+.header {}
+
+.selection {
+  gap: calc(var(--minor) / 2);
+  margin-top: var(--minor);
+  flex-direction: row;
+  display: flex;
+  border: 0;
+}
+
+.header {
+  font-family: verdana;
+  font-weight: normal;
+  color: white;
+  border-bottom: 1px solid white;
+  padding-bottom: calc(var(--minor) / 2);
+  margin-bottom: var(--minor);
+}
+
+.input {
+  display: none
+}
